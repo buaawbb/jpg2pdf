@@ -1,0 +1,4 @@
+#Sat Apr 04 21:41:53 CST 2026
+base.0=D\:\\claw\\jpg2pdf2\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
+path.0=0/classes.dex
+renamed.0=classes.dex

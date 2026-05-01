@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">JPG转PDF</string>
+    <string name="select_images">选择图片</string>
+    <string name="image_source">图片来源</string>
+    <string name="pdf_save_path">PDF保存路径</string>
+    <string name="pdf_filename">PDF文件名</string>
+    <string name="filename_hint">输入文件名</string>
+    <string name="generate_pdf">生成PDF</string>
+    <string name="share_pdf">分享PDF</string>
+    <string name="crop_mode">裁剪模式</string>
+    <string name="no_crop">不裁剪</string>
+    <string name="custom_crop">自定义裁剪</string>
+    <string name="add_crop_box">添加裁剪框</string>
+    <string name="remove_crop_box">移除裁剪框</string>
+    <string name="no_images_selected">未选择图片</string>
+    <string name="generating_pdf">正在生成PDF…</string>
+    <string name="pdf_generated">PDF生成成功</string>
+    <string name="pdf_generation_failed">PDF生成失败</string>
+    <string name="permission_denied">权限被拒绝</string>
+    <string name="select_image_source">选择图片来源</string>
+    <string name="select_save_path">选择保存路径</string>
+    <string name="images_count">已选择 %d 张图片</string>
+    <string name="progress_format">进度: %d/%d</string>
+    <string name="path_gallery">相册</string>
+    <string name="path_screenshots">截图</string>
+    <string name="path_downloads">下载</string>
+    <string name="path_custom">自定义路径</string>
+    <string name="select_folder">选择文件夹</string>
+</resources>

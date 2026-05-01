@@ -1,0 +1,19 @@
+<resources>
+    <color name="primary">#1976D2</color>
+    <color name="primary_dark">#1565C0</color>
+    <color name="primary_light">#42A5F5</color>
+    <color name="accent">#FF5722</color>
+    <color name="background">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="crop_box_stroke">#FF0000</color>
+    <color name="crop_box_handle">#FF0000</color>
+    <color name="thumbnail_border">#E0E0E0</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="button_enabled">#1976D2</color>
+    <color name="button_disabled">#BDBDBD</color>
+    <color name="progress_background">#E0E0E0</color>
+    <color name="overlay_dim">#80000000</color>
+</resources>
