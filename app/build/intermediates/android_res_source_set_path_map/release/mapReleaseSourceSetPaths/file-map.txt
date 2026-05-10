@@ -1,0 +1,9 @@
+com.jpg2pdf.app-pngs-0 D:\claw\jpg2pdf2\app\build\generated\res\pngs\release
+com.jpg2pdf.app-resValues-1 D:\claw\jpg2pdf2\app\build\generated\res\resValues\release
+com.jpg2pdf.app-updated_navigation_xml-2 D:\claw\jpg2pdf2\app\build\generated\updated_navigation_xml\release
+com.jpg2pdf.app-packageReleaseResources-3 D:\claw\jpg2pdf2\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.jpg2pdf.app-packageReleaseResources-4 D:\claw\jpg2pdf2\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.jpg2pdf.app-merged-not-compiled-resources-5 D:\claw\jpg2pdf2\app\build\intermediates\merged-not-compiled-resources\release
+com.jpg2pdf.app-release-6 D:\claw\jpg2pdf2\app\build\intermediates\merged_res\release\mergeReleaseResources
+com.jpg2pdf.app-main-7 D:\claw\jpg2pdf2\app\src\main\res
+com.jpg2pdf.app-release-8 D:\claw\jpg2pdf2\app\src\release\res

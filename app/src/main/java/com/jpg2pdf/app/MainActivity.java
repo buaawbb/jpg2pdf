@@ -113,6 +113,10 @@ public class MainActivity extends AppCompatActivity {
     private int selectedCropImageIndex = -1;
     private int selectedLoadCount = 10;
     private boolean useCustomLoadCount = false;
+    private float savedCropLeft = -1f;
+    private float savedCropTop = -1f;
+    private float savedCropRight = -1f;
+    private float savedCropBottom = -1f;
 
     private static final int REQUEST_PERMISSIONS = 100;
     private static final String PREFS_NAME = "Jpg2PdfPrefs";
@@ -120,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY_SAVE_PATH_INDEX = "save_path_index";
     private static final String KEY_IMAGE_SOURCE_URI = "image_source_uri";
     private static final String KEY_IMAGE_SOURCE_INDEX = "image_source_index";
+    private static final String KEY_CROP_LEFT = "crop_left";
+    private static final String KEY_CROP_TOP = "crop_top";
+    private static final String KEY_CROP_RIGHT = "crop_right";
+    private static final String KEY_CROP_BOTTOM = "crop_bottom";
 
     private ActivityResultLauncher<Intent> imagePickerLauncher;
     private ActivityResultLauncher<Intent> folderPickerLauncher;
@@ -640,6 +648,8 @@ public class MainActivity extends AppCompatActivity {
                         cropOverlay.setCropRect(viewRect);
                     }
                 }
+            } else {
+                autoAddCropBox(uri);
             }
 
             if (savedWhite != null) {
@@ -695,6 +705,54 @@ public class MainActivity extends AppCompatActivity {
         cropOverlay.clearWhiteRect();
         if (selectedCropImageIndex >= 0) {
             whiteBoxRects.set(selectedCropImageIndex, null);
+        }
+    }
+
+    private void autoAddCropBox(Uri uri) {
+        if (savedCropLeft >= 0 && ivCropImage.getWidth() > 0) {
+            int[] imageSize = getImageSize(uri);
+            if (imageSize[0] > 0 && imageSize[1] > 0) {
+                RectF imgRect = new RectF(
+                        savedCropLeft * imageSize[0],
+                        savedCropTop * imageSize[1],
+                        savedCropRight * imageSize[0],
+                        savedCropBottom * imageSize[1]
+                );
+                RectF viewRect = cropOverlay.getCropRectInViewCoords(imgRect,
+                        imageSize[0], imageSize[1],
+                        ivCropImage.getWidth(), ivCropImage.getHeight());
+                if (viewRect != null) {
+                    cropOverlay.setCropRect(viewRect);
+                    return;
+                }
+            }
+        }
+        cropOverlay.initDefaultCropRect();
+    }
+
+    private void saveCropRectPrefs() {
+        if (cropOverlay.hasCropRect() && selectedCropImageIndex >= 0
+                && selectedCropImageIndex < selectedImages.size()) {
+            Uri currentUri = selectedImages.get(selectedCropImageIndex);
+            int[] imageSize = getImageSize(currentUri);
+            if (imageSize[0] > 0 && imageSize[1] > 0) {
+                RectF imageRect = cropOverlay.getCropRectInImageCoords(
+                        imageSize[0], imageSize[1],
+                        ivCropImage.getWidth(), ivCropImage.getHeight());
+                if (imageRect != null) {
+                    savedCropLeft = imageRect.left / imageSize[0];
+                    savedCropTop = imageRect.top / imageSize[1];
+                    savedCropRight = imageRect.right / imageSize[0];
+                    savedCropBottom = imageRect.bottom / imageSize[1];
+                    SharedPreferences prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+                    prefs.edit()
+                            .putFloat(KEY_CROP_LEFT, savedCropLeft)
+                            .putFloat(KEY_CROP_TOP, savedCropTop)
+                            .putFloat(KEY_CROP_RIGHT, savedCropRight)
+                            .putFloat(KEY_CROP_BOTTOM, savedCropBottom)
+                            .apply();
+                }
+            }
         }
     }
 
@@ -810,6 +868,7 @@ public class MainActivity extends AppCompatActivity {
         final File finalOutputFile = new File(saveDir, filename);
 
         saveCurrentBoxRects();
+        saveCropRectPrefs();
 
         final List<RectF> finalCropRects = new ArrayList<>();
         RectF currentCrop = null;
@@ -1088,6 +1147,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         selectedImageSource = prefs.getInt(KEY_IMAGE_SOURCE_INDEX, SOURCE_SCREENSHOTS);
+
+        savedCropLeft = prefs.getFloat(KEY_CROP_LEFT, -1f);
+        savedCropTop = prefs.getFloat(KEY_CROP_TOP, -1f);
+        savedCropRight = prefs.getFloat(KEY_CROP_RIGHT, -1f);
+        savedCropBottom = prefs.getFloat(KEY_CROP_BOTTOM, -1f);
     }
 
     private void savePreferences() {
@@ -1106,6 +1170,9 @@ public class MainActivity extends AppCompatActivity {
             editor.remove(KEY_IMAGE_SOURCE_URI);
         }
         editor.putInt(KEY_IMAGE_SOURCE_INDEX, selectedImageSource);
+
+        saveCropRectPrefs();
+
         editor.apply();
     }
 

@@ -1,0 +1,84 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1777602342120,
+  "projectRoot": "D:\\claw\\jpg2pdf2",
+  "techStack": {
+    "languages": [
+      {
+        "name": "Java/Kotlin",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "build.gradle"
+        ]
+      }
+    ],
+    "frameworks": [],
+    "packageManager": "gradle",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "app"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "app": {
+      "path": "app",
+      "purpose": "Application code",
+      "fileCount": 2,
+      "lastAccessed": 1777602342097,
+      "keyFiles": [
+        "build.gradle",
+        "proguard-rules.pro"
+      ]
+    },
+    "build": {
+      "path": "build",
+      "purpose": "Build output",
+      "fileCount": 0,
+      "lastAccessed": 1777602342098,
+      "keyFiles": []
+    },
+    "gradle": {
+      "path": "gradle",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1777602342098,
+      "keyFiles": []
+    },
+    "app\\build": {
+      "path": "app\\build",
+      "purpose": "Build output",
+      "fileCount": 0,
+      "lastAccessed": 1777602342098,
+      "keyFiles": []
+    },
+    "app\\src": {
+      "path": "app\\src",
+      "purpose": "Source code",
+      "fileCount": 0,
+      "lastAccessed": 1777602342099,
+      "keyFiles": []
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}

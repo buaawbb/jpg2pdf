@@ -2,3 +2,29 @@
 plugins {
     id 'com.android.application' version '9.1.0' apply false
 }
+
+// 正式版配置：关闭调试、混淆、压缩资源、关闭Log
+subprojects {
+    afterEvaluate {
+        if (it.plugins.hasPlugin("com.android.application")) {
+            android {
+                // 解决报错：启用 BuildConfig
+                buildFeatures {
+                    buildConfig true
+                }
+
+                buildTypes {
+                    release {
+                        minifyEnabled true
+                        shrinkResources true
+                        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                        debuggable false
+                        jniDebuggable false
+                        renderscriptDebuggable false
+                        buildConfigField "boolean", "DEBUG", "false"
+                    }
+                }
+            }
+        }
+    }
+}
