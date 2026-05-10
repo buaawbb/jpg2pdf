@@ -1,6 +1,8 @@
 # JPG 转 PDF
 
 一个 Android 应用，用于将 JPG/PNG 图片无损转换为 PDF 文档，支持裁剪和白框标注功能。
+<img width="49%" height="49%" alt="b2c0de664e9a7472a5354c52d0d99a31" src="https://github.com/user-attachments/assets/1b8a5cda-70e8-407d-b61a-34ce98589678" /> <img width="49%" height="49%" alt="6b4cd909201f8755ebef537ee71707b0" src="https://github.com/user-attachments/assets/0fdc2bb0-471b-48b0-81f5-f44cce21da5b" />
+
 
 ## 功能
 
